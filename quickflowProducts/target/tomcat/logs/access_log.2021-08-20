@@ -1,0 +1,9 @@
+127.0.0.1 - - [20/Aug/2021:11:17:14 +0200] "GET /api/myresource HTTP/1.1" 200 22 http-bio-9090-exec-1 94
+127.0.0.1 - - [20/Aug/2021:11:17:17 +0200] "GET /api/test_json HTTP/1.1" 200 1190 http-bio-9090-exec-3 3578
+127.0.0.1 - - [20/Aug/2021:11:17:20 +0200] "GET /api/produits HTTP/1.1" 200 774 http-bio-9090-exec-3 494
+127.0.0.1 - - [20/Aug/2021:11:17:52 +0200] "OPTIONS /api/produits HTTP/1.1" 200 - http-bio-9090-exec-3 4
+127.0.0.1 - - [20/Aug/2021:11:17:52 +0200] "POST /api/produits HTTP/1.1" 201 111 http-bio-9090-exec-3 58
+127.0.0.1 - - [20/Aug/2021:11:18:07 +0200] "POST /api/produits HTTP/1.1" 201 141 http-bio-9090-exec-3 17
+127.0.0.1 - - [20/Aug/2021:11:18:19 +0200] "POST /api/produits HTTP/1.1" 201 142 http-bio-9090-exec-3 18
+127.0.0.1 - - [20/Aug/2021:11:18:27 +0200] "OPTIONS /api/produits/19 HTTP/1.1" 200 - http-bio-9090-exec-9 2
+127.0.0.1 - - [20/Aug/2021:11:18:27 +0200] "DELETE /api/produits/19 HTTP/1.1" 200 190 http-bio-9090-exec-9 76

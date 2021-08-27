@@ -1,0 +1,273 @@
+$police: Helvetica,sans-serif;
+$color-orange: #f16e00;
+$color-jaune: #FFDC00;
+$color-bleu: #4BB4E6;
+$color-rose: #FFB4E6;
+$color-vert: #50BE87;
+$color-violet: #9164CD;
+$jaune-cyberpunk: #F8F005;
+$marron-cyberpunk: #9c9503;
+
+h2 {
+    font-family: $police;
+    font-size: 30px;
+}
+
+.select-option {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border-bottom: 2px solid black; 
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: $jaune-cyberpunk;
+    display: grid;
+    align-items: center;
+    & option:first-child {
+        color: $marron-cyberpunk;
+    }
+    & option {
+        background-color: black;
+        color: white;
+    }
+}
+
+.input {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	padding-top: 1.5rem;
+    /* + (combinator CSS) = Ne cible que les .input situé directement après une .input */
+	&+.input {
+		margin-top: 1.5rem;
+	}
+}
+
+.input-label {
+	color: $marron-cyberpunk;
+	position: absolute;
+	top: 1.5rem;
+	transition: .25s ease;
+    font-family: $police;
+}
+
+.input-field {
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	border-bottom: 2px solid black; 
+	font-family: $police;
+	font-size: 1.125rem;
+	padding: .25rem 0;
+	&:focus, &:valid {
+		outline: 0;
+		border-bottom-color: black;
+        /* + (combinator CSS) = Ne cible que les .input-label situé directement après une .input-field:focus et :valid */
+		&+.input-label {
+			color: black;
+			transform: translateY(-1.5rem);
+            font-size: 0.8rem;
+		}
+	}
+}
+
+@mixin table-widget($theme) {
+    background: $theme;
+    float: left;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.menu-widget {
+    @include table-widget($theme: white);
+}
+
+.form-widget {
+    @include table-widget($theme: $jaune-cyberpunk);
+}
+
+.widget-box {
+    width: 140px;
+    height: 75px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+    display: flex;
+    padding: 0;
+    box-sizing: border-box;
+    
+    a {
+        background:black;
+        border: none;
+        border-radius: 0px;
+        color: white;
+        padding: 2px;
+        display: table;
+        width: 80%;
+        text-align: center;
+        text-decoration: none;
+        height: 80%;
+        margin-top: 15px;
+        box-sizing: border-box;
+
+        &:hover {
+            background: $color-orange;
+        }
+
+        span {
+            font-family: $police;
+            font-size: 14px;
+            font-weight: 600;
+            display: table-cell;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+        &:nth-last-child(1) {
+            width: 100%;
+        }
+    }
+    &:nth-child(5n+1) {
+        background: $color-jaune;
+    }
+    &:nth-child(5n+2) {
+        background: $color-bleu;
+    }
+    &:nth-child(5n+3) {
+        background: $color-rose;
+    }
+    &:nth-child(5n+4) {
+        background: $color-vert;
+    }
+    &:nth-child(5n+5) {
+        background: $color-violet;
+    }
+
+    button {
+        background:black;
+        border: none;
+        border-radius: 0px;
+        color: white;
+        height: 80%;
+        width: 20%;
+        margin: 0;
+        margin-top: 15px;
+        font-family: $police;
+        font-size: 14px;
+        font-weight: 600;
+        &:hover {
+            background: $color-orange;
+        }
+    }
+}
+
+.remove-button {
+    width: 30px;
+    height: 20px;
+    font-size: 16px;
+    background: linear-gradient(45deg, transparent 5%, red 5%);
+    &::after {
+        content: 'X';
+        background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, red 5%);
+    }
+}
+
+.add-button {
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
+    background: linear-gradient(45deg, transparent 5%, green 5%);
+    &::after {
+        content: '+';
+        background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, green 5%);
+    }
+}
+
+.submit-button {
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+    background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+    &::after {
+        content: 'SUBMIT_';
+        background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+    }
+}
+
+.cyber-button {
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    box-shadow: 6px 0px 0px #00E6F6;
+    outline: transparent;
+    position: relative;
+    &::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+        clip-path: var(--slice-0);
+    }
+    &:hover::after {
+        animation: 1s infinite glitch;
+        animation-timing-function: steps(2, end);
+    }
+}
+
+@keyframes glitch {
+    0% {
+      clip-path: var(--slice-1);
+      transform: translate(-20px, -10px);
+    }
+    10% {
+      clip-path: var(--slice-3);
+      transform: translate(10px, 10px);
+    }
+    20% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 10px);
+    }
+    30% {
+      clip-path: var(--slice-3);
+      transform: translate(0px, 5px);
+    }
+    40% {
+      clip-path: var(--slice-2);
+      transform: translate(-5px, 0px);
+    }
+    50% {
+      clip-path: var(--slice-3);
+      transform: translate(5px, 0px);
+    }
+    60% {
+      clip-path: var(--slice-4);
+      transform: translate(5px, 10px);
+    }
+    70% {
+      clip-path: var(--slice-2);
+      transform: translate(-10px, 10px);
+    }
+    80% {
+      clip-path: var(--slice-5);
+      transform: translate(20px, -10px);
+    }
+    90% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 0px);
+    }
+    100% {
+      clip-path: var(--slice-1);
+      transform: translate(0);
+    }
+}

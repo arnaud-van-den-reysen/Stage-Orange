@@ -1,0 +1,279 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.orange</groupId>
+    <artifactId>quickflowProducts</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>quickflowProducts Jersey Webapp</name>
+    <build>
+        <finalName>quickflowProducts</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <!-- Run the application using "mvn embedded-glassfish:run" -->
+            <plugin>
+                <groupId>org.glassfish</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>${glassfish.version}</version>
+                <configuration>
+                    <goalPrefix>embedded-glassfish</goalPrefix>
+                    <app>D:/WORK/target/${project.build.finalName}.war</app>
+                    <autoDelete>true</autoDelete>
+                    <port>8080</port>
+                </configuration>
+                <dependencies>
+                    <!-- <dependency>
+                        <groupId>com.sun.jersey</groupId>
+                        <artifactId>jersey-servlet</artifactId>
+                        <version>${project.version}</version>
+                    </dependency> -->
+                    <dependency>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                        <version>3.0.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!-- how to run embedded tomcat with maven -->
+		    <plugin>
+		        <groupId>org.apache.tomcat.maven</groupId>
+		        <artifactId>tomcat7-maven-plugin</artifactId>
+		        <version>2.2</version>
+                <configuration>
+                    <port>9090</port>
+                    <path>/</path>
+                </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-util</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-coyote</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-api</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper-el</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-el-api</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-tribes</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina-ha</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-annotations-api</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-juli</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-juli</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-log4j</artifactId>
+            <version>${tomcat.version}</version>
+          </dependency>
+          </dependencies>
+		    </plugin>
+        <!-- added because @BeforeEach was not working -->
+        <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.19.1</version>
+            <dependencies>
+                <dependency>
+                    <groupId>org.junit.platform</groupId>
+                    <artifactId>junit-platform-surefire-provider</artifactId>
+                    <version>1.1.0</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+      </plugins>
+    </build>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey.version}</version>
+        </dependency> -->
+        <dependency>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-server</artifactId>
+          <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>org.glassfish.jersey.containers</groupId>
+          <artifactId>jersey-container-servlet</artifactId>
+          <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-jackson</artifactId>
+          <version>${jersey.version}</version>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.7.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+            <scope>test</scope>
+        </dependency> -->
+        <dependency>
+            <groupId>org.glassfish.extras</groupId>
+            <artifactId>glassfish-embedded-web</artifactId>
+            <version>${glassfish.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.5.0.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.thetransactioncompany/cors-filter -->
+        <!-- <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>2.10</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-55 -->
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-55</artifactId>
+            <version>2.12.1</version>
+        </dependency>
+
+    </dependencies>
+    <properties>
+        <!-- permet de corriger cette erreur https://stackoverflow.com/questions/53063324/severe-unable-to-process-jar-entry-module-info-class-in-tomcat-7-java-8 -->
+        <tomcat.version>7.0.109</tomcat.version>
+        <!-- <tomcat.version>8.5.2</tomcat.version> -->
+        <jersey.version>2.25</jersey.version>
+        <!-- <jersey.version>1.19.1</jersey.version> -->
+        <glassfish.version>3.1.1</glassfish.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>

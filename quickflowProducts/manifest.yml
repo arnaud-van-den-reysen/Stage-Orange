@@ -1,0 +1,9 @@
+---
+version: 1
+applications:
+- name: quickflowProducts
+  memory: 1G
+  instances: 1
+  path: target/quickflowProducts.war
+  buildpacks: 
+  - java_buildpack_v4_38

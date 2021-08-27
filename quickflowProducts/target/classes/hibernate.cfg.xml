@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- <property name="hibernate.dialect">net.sf.hibernate.dialect.MySQLDialect</property> -->
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> -->
+        <!-- <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/orangear?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property> -->
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/orangear?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=false</property>
+        <!-- <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/orangear</property> -->
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="show_sql">true</property>
+        <!-- update => create if database not exists -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- ne pas se tromper dans l'orthographe imbécile (: -->
+        <!-- bon c'était pas que ça ... -->
+        <!-- ne pas se tromper dans l'arborescence ... en faite c'était bon -->
+        <mapping resource="Produit.hbm.xml"/>
+        <!-- NE PAS UTILISER mapping resource POUR FAIRE DU JSON -->
+        <!-- ça peut-être ? -->
+        <!-- <mapping class="net.codejava.Product" /> -->
+    </session-factory>
+</hibernate-configuration>

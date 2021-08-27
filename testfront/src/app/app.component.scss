@@ -1,0 +1,23 @@
+$police: Helvetica,sans-serif;
+$color-orange: #f16e00;
+
+a:link, a:visited {
+    background-color: black;
+    color: white;
+    font-family: $police;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    color: $color-orange;
+}
+
+.logo {
+    float: left;
+    width: 35px;
+}

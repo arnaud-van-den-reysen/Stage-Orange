@@ -1,0 +1,17 @@
+<p>product-detail works!</p>
+<div *ngIf="product">
+    <p>{{product.jdoc}}</p>
+    <div><span>id: </span>{{product.id}}</div>
+    <div>
+        <label for="product-jdoc">Jdoc: </label>
+        <input id="product-jdoc" [(ngModel)]="product.jdoc" placeholder="jdoc">
+        <label for="product-jdoc-idprod">Jdoc idprod: </label>
+        <input id="product-jdoc-idprod" [(ngModel)]="product.jdoc.idprod" placeholder="idprod">
+        <label for="product-jdoc-nameprod">Jdoc nameprod: </label>
+        <input id="product-jdoc-nameprod" [(ngModel)]="product.jdoc.nameprod" placeholder="nameprod">
+        <label for="product-jdoc-description">Jdoc description: </label>
+        <input id="product-jdoc-description" [(ngModel)]="product.jdoc.description" placeholder="description">
+    </div>
+    <button (click)="save()">save</button>
+    <button (click)="goBack()">go back</button>
+</div>

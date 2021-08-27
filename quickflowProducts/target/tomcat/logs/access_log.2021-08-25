@@ -1,0 +1,5 @@
+127.0.0.1 - - [25/Aug/2021:09:50:46 +0200] "GET /api/myresource HTTP/1.1" 200 22 http-bio-9090-exec-1 174
+127.0.0.1 - - [25/Aug/2021:09:50:49 +0200] "GET /api/test_json HTTP/1.1" 200 1190 http-bio-9090-exec-2 3566
+127.0.0.1 - - [25/Aug/2021:09:50:49 +0200] "GET /api/produits HTTP/1.1" 200 980 http-bio-9090-exec-1 1967
+127.0.0.1 - - [25/Aug/2021:09:59:06 +0200] "GET /api/myresource HTTP/1.1" 200 22 http-bio-9090-exec-8 4
+127.0.0.1 - - [25/Aug/2021:09:59:06 +0200] "GET /api/produits HTTP/1.1" 200 980 http-bio-9090-exec-10 109

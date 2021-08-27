@@ -1,0 +1,23 @@
+<p>product works!</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)">
+    <label for="idprod">idprod: </label>
+    <input id="idprod" type="number" formControlName="idprod">
+    <label for="nameprod">nameprod: </label>
+    <input id="nameprod" type="text" formControlName="nameprod">
+    <label for="description">description: </label>
+    <input id="description" type="text" formControlName="description">
+    <button type="submit">Submit</button>
+</form>
+<p>{{ productForm.value | json }}</p>
+<ul>
+    <li *ngFor="let product of products">
+        <a routerLink="/detail/{{product.id}}">
+            <span>{{product.id}}</span>
+            <div>Idprod => {{product.jdoc.idprod}}</div>
+            <div>Namedprod => {{product.jdoc.nameprod}}</div>
+            <div *ngIf="product.jdoc.description">Description => {{product.jdoc.description}}</div>
+        </a>
+        <button class="delete" title="delete product"
+            (click)="delete_jdoc(product)">x</button>
+    </li>
+</ul>

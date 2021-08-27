@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "form_json": {
+            "id": 1,
+            "name": "Mesure de performance",
+            "formulaire": [
+                "Source",
+                "Enrichement",
+                "Destination"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "form_json": {
+            "id": 2,
+            "name": "Transfert de fichier",
+            "formulaire": [
+                "Source",
+                "Destination"
+            ]
+        }
+    }
+]
